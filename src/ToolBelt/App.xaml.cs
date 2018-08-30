@@ -6,6 +6,7 @@ using ToolBelt.Services;
 using ToolBelt.Views;
 using ToolBelt.Views.About;
 using ToolBelt.Views.Authentication;
+using ToolBelt.Views.Authentication.Registration;
 using ToolBelt.Views.Messages;
 using ToolBelt.Views.Profile;
 using Xamarin.Forms;
@@ -69,8 +70,11 @@ namespace ToolBelt
             containerRegistry.RegisterForNavigation<ModalNavigationPage, ModalNavigationPageViewModel>();
             containerRegistry.RegisterForNavigation<TabbedPage>();
             containerRegistry.RegisterForNavigation<ExtendedSplashPage, ExtendedSplashPageViewModel>();
+
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
+            containerRegistry.RegisterForNavigation<BasicInformationPage, BasicInformationPageViewModel>();
             containerRegistry.RegisterForNavigation<SignupPage, SignupPageViewModel>();
+
             containerRegistry.RegisterForNavigation<RootPage, RootPageViewModel>("Root");
             containerRegistry.RegisterForNavigation<RootNavigationPage, RootNavigationPageViewModel>("Details");
             containerRegistry.RegisterForNavigation<CommunitiesPage, CommunitiesPageViewModel>();

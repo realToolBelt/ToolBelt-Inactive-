@@ -7,6 +7,7 @@ using System.Reactive.Linq;
 using ToolBelt.Services;
 using ToolBelt.Services.Authentication;
 using ToolBelt.ViewModels;
+using ToolBelt.Views.Authentication.Registration;
 
 namespace ToolBelt.Views.Authentication
 {
@@ -60,7 +61,9 @@ namespace ToolBelt.Views.Authentication
             var user = await _userDataStore.GetUserFromProvider(providerUser);
             if (user == null)
             {
-                // TODO: New user.  Show the registration flow
+                // the user is a new user.  Show the registration flow.
+                // NOTE: We probably don't want to do this here.  We should have a separate sign up process
+                await NavigationService.NavigateAsync($"/NavigationPage/{nameof(BasicInformationPage)}").ConfigureAwait(false);
             }
             else
             {
