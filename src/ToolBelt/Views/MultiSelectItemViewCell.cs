@@ -41,7 +41,7 @@ namespace ToolBelt.Views
                     .DisposeWith(disposable);
 
                 this
-                    .OneWayBind(ViewModel, vm => vm.IsSelected, v => v._switch.IsToggled)
+                    .Bind(ViewModel, vm => vm.IsSelected, v => v._switch.IsToggled)
                     .DisposeWith(disposable);
 
                 // TODO: Need to make sure the view-cells get disposed!
