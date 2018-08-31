@@ -24,6 +24,7 @@ namespace ToolBelt.Views.Authentication.Registration
 
                 // TODO: Should save to user profile at this point and flag that this page has been completed...
                 // TODO: Add to user info and move on to the next page
+                await navigationService.NavigateAsync(nameof(TradeSpecialtiesPage)).ConfigureAwait(false);
             });
         }
 

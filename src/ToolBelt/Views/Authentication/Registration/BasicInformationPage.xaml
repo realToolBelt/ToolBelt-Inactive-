@@ -46,9 +46,14 @@
                Style="{StaticResource ValidationErrorLabelStyle}"
                VerticalOptions="Start" />
 
+        <BoxView Margin="0,5"
+                 BackgroundColor="{DynamicResource accentColor}"
+                 HeightRequest="2"
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="EndAndExpand" />
         <Button x:Name="_btnNext"
-                HorizontalOptions="EndAndExpand"
+                HorizontalOptions="End"
                 Text="Next"
-                VerticalOptions="EndAndExpand" />
+                VerticalOptions="End" />
     </StackLayout>
 </views:ContentPageBase>

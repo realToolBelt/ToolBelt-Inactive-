@@ -73,6 +73,7 @@ namespace ToolBelt
 
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<BasicInformationPage, BasicInformationPageViewModel>();
+            containerRegistry.RegisterForNavigation<TradeSpecialtiesPage, TradeSpecialtiesPageViewModel>();
             containerRegistry.RegisterForNavigation<SignupPage, SignupPageViewModel>();
 
             containerRegistry.RegisterForNavigation<RootPage, RootPageViewModel>("Root");
