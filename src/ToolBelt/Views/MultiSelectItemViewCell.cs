@@ -37,7 +37,7 @@ namespace ToolBelt.Views
             this.WhenActivated(disposable =>
             {
                 this
-                    .OneWayBind(ViewModel, vm => vm.Item, v => v._label.Text)
+                    .OneWayBind(ViewModel, vm => vm.DisplayValue, v => v._label.Text)
                     .DisposeWith(disposable);
 
                 this

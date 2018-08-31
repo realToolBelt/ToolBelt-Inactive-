@@ -9,8 +9,8 @@
                        prism:ViewModelLocator.AutowireViewModel="True"
                        x:TypeArguments="local:TradeSpecialtiesPageViewModel">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="_miSelectAll" Text="Select All" />
-        <ToolbarItem x:Name="_miSelectNone" Text="Select None" />
+        <ToolbarItem x:Name="_miSelectAll" Text="All" />
+        <ToolbarItem x:Name="_miSelectNone" Text="None" />
     </ContentPage.ToolbarItems>
     <Grid Padding="20">
         <Grid.RowDefinitions>

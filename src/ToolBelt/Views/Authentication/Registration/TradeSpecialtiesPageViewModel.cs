@@ -3,6 +3,8 @@ using Prism.Services;
 using ReactiveUI;
 using System.Linq;
 using System.Reactive.Linq;
+using ToolBelt.Models;
+using ToolBelt.Services;
 using ToolBelt.ViewModels;
 
 namespace ToolBelt.Views.Authentication.Registration
@@ -12,7 +14,8 @@ namespace ToolBelt.Views.Authentication.Registration
     {
         public TradeSpecialtiesPageViewModel(
             INavigationService navigationService,
-            IPageDialogService dialogService) : base(navigationService)
+            IPageDialogService dialogService,
+            IProjectDataStore projectDataStore) : base(navigationService)
         {
             Title = "Trade Specialties";
 
@@ -44,54 +47,21 @@ namespace ToolBelt.Views.Authentication.Registration
 
             });
 
-            Items.AddRange(
-                new[]
+            projectDataStore
+                .GetTradeSpecialtiesAsync()
+                .ContinueWith(t =>
                 {
-                    "Laborer",
-                    "Carpenter",
-                    "Construction manager",
-                    "Painter",
-                    "Admin support",
-                    "Plumber",
-                    "Professional",
-                    "Heat A/C mech",
-                    "Operating engineer",
-                    "Repairer",
-                    "Manager",
-                    "Electrician",
-                    "Roofer",
-                    "Truck driver",
-                    "Brickmason",
-                    "Foreman",
-                    "Service",
-                    "Drywall",
-                    "Welder",
-                    "Carpet and tile",
-                    "Material moving",
-                    "Concrete",
-                    "Ironworker",
-                    "Helper",
-                    "Insulation",
-                    "Sheet metal",
-                    "Fence Erector",
-                    "Highway Maint",
-                    "Misc worker",
-                    "Inspector",
-                    "Glazier",
-                    "Plasterer",
-                    "Dredge",
-                    "Power-line installer",
-                    "Driller",
-                    "Elevator",
-                    "Paving",
-                    "Iron reinforcement",
-                    "Boilermaker",
-                    "Other"
-                }
-                .Select(community => new SelectionViewModel<string>(community)));
+                    // TODO: Handle failure?
+                    Items.AddRange(
+                        t.Result.Select(
+                            specialty => new SelectionViewModel<TradeSpecialty>(specialty)
+                            {
+                                DisplayValue = specialty.Name
+                            }));
+                });
         }
 
-        public ReactiveList<SelectionViewModel<string>> Items { get; } = new ReactiveList<SelectionViewModel<string>>();
+        public ReactiveList<SelectionViewModel<TradeSpecialty>> Items { get; } = new ReactiveList<SelectionViewModel<TradeSpecialty>>();
 
         public ReactiveCommand Next { get; }
 
