@@ -1,4 +1,5 @@
-﻿using Prism;
+﻿using System;
+using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
 using Splat;
@@ -90,6 +91,16 @@ namespace ToolBelt
             containerRegistry.RegisterForNavigation<ProjectDetailsPage, ProjectDetailsPageViewModel>();
 
             containerRegistry.RegisterForNavigation<ChatPage, ChatPageViewModel>();
+
+            RegisterSplatDependencies();
+        }
+
+        private void RegisterSplatDependencies()
+        {
+            // register the command binder for the social buttons
+            Locator.CurrentMutable.Register(
+                () => new Controls.SocialButtonCommandBinder(),
+                typeof(ReactiveUI.ICreatesCommandBinding));
         }
     }
 }
