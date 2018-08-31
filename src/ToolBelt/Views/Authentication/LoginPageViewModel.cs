@@ -4,6 +4,7 @@ using ReactiveUI;
 using System;
 using System.Reactive;
 using System.Reactive.Linq;
+using ToolBelt.Extensions;
 using ToolBelt.Services;
 using ToolBelt.Services.Authentication;
 using ToolBelt.ViewModels;
